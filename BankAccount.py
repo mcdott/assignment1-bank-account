@@ -31,11 +31,11 @@ class BankAccount:
 
     def print_statement(self):
         last_4_digits_of_account_number = self.account_number[4:8]
-        print(f'{self.full_name} \n{self.account_type} Account No.: ****{last_4_digits_of_account_number} \nBalance: ${round(self.balance, 2)} ')
+        print(f'{self.full_name} \n{self.account_type} Account No.: ****{last_4_digits_of_account_number} \nBalance: ${round(self.balance, 2)}')
 
 # Stretch challenge 3 - helper functions
 def get_first_name():
-    print("Thank you for opening an account at Super Bank")
+    print("\nThank you for opening an account at Super Bank")
     while True:
         try:
             return input("Enter your first name: ")
@@ -68,7 +68,7 @@ def get_account_type():
 
 def generate_account_number(current_highest_account_number ):
     account_number = current_highest_account_number + 1
-    return account_number
+    return str(account_number)
 
 
 def get_initial_balance():
@@ -77,6 +77,7 @@ def get_initial_balance():
             return float(input("Initial deposit amount: $"))
         except ValueError:
             print("Please enter an amount in dollars and cents ex. $43.52")
+
 # Assignment requirement 5: Instantiate 3 bank accounts
 investment_account = BankAccount('Mitchell Hudson', 'Savings', '03141592', 0)
 chequing = BankAccount('Sam Bologna', 'Chequing','54789384', 467.92)
@@ -114,15 +115,20 @@ add_interest_to_list_of_accounts(bank)
 def main():
     current_highest_account_number = 60027839
 
-    # Get information to instantiate a new BankAccount object
+    # Get information from user to instantiate a new BankAccount object
     full_name = get_full_name()
     account_type = get_account_type()
     account_number = generate_account_number(current_highest_account_number)
-    current_highest_account_number = account_number
+    current_highest_account_number = int(account_number)
     initial_balance = get_initial_balance()
 
-    print(f'{full_name} {account_type} {account_number} {initial_balance} ')
-    print(current_highest_account_number)
+    # Instantiate a new bank account based on user input
+    user_account1 = BankAccount(full_name, account_type, account_number, initial_balance)
+
+    # Provide the new account information to the user
+    print(f'\nCongratulations on opening your new {user_account1.account_type} account!')
+    print('Here is your first statement:')
+    print(f'{user_account1.print_statement()}')
 
 
 main()
