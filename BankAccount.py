@@ -103,7 +103,7 @@ investment_account.withdraw(150)
 investment_account.print_statement()
 
 
-# Stretch challenge 2
+# Stretch challenge 2 - Create a list of accounts and add interest to each account in the list
 def add_interest_to_list_of_accounts(list):
     for account in list:
      account.add_interest()
@@ -111,7 +111,7 @@ def add_interest_to_list_of_accounts(list):
 bank = [investment_account, chequing, savings]
 add_interest_to_list_of_accounts(bank)
 
-# Stretch challenge 3
+# Stretch challenge 3 - Create an "application" to prompt the user for input to create a bank account
 def main():
     current_highest_account_number = 60027839
 
