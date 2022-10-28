@@ -1,3 +1,4 @@
+
 class BankAccount:
     def __init__(self, full_name, account_type, account_number, balance = 0):
         self.full_name = full_name
@@ -32,6 +33,50 @@ class BankAccount:
         last_4_digits_of_account_number = self.account_number[4:8]
         print(f'{self.full_name} \n{self.account_type} Account No.: ****{last_4_digits_of_account_number} \nBalance: ${round(self.balance, 2)} ')
 
+# Stretch challenge 3 - helper functions
+def get_first_name():
+    print("Thank you for opening an account at Super Bank")
+    while True:
+        try:
+            return input("Enter your first name: ")
+        except ValueError:
+            print("Invalid entry")
+
+def get_last_name():
+    while True:
+        try:
+            return input("Enter your last name: ")
+        except ValueError:
+            print("Invalid entry")
+
+def get_full_name():
+    first_name = get_first_name()
+    last_name = get_last_name()
+    full_name = f'{first_name} {last_name}'
+    return full_name
+
+def get_account_type():
+    print("Would you like a savings account or a chequing account?")
+    account_type_code = ''
+    while account_type_code.upper() != 'S' and account_type_code.upper() != 'C':
+        account_type_code = input("Enter S for savings or C for chequing: ")
+
+    if account_type_code.upper() == 'S':
+        return 'savings'
+    else:
+        return 'chequing'
+
+def generate_account_number(current_highest_account_number ):
+    account_number = current_highest_account_number + 1
+    return account_number
+
+
+def get_initial_balance():
+    while True:
+        try:
+            return float(input("Initial deposit amount: $"))
+        except ValueError:
+            print("Please enter an amount in dollars and cents ex. $43.52")
 # Assignment requirement 5: Instantiate 3 bank accounts
 investment_account = BankAccount('Mitchell Hudson', 'Savings', '03141592', 0)
 chequing = BankAccount('Sam Bologna', 'Chequing','54789384', 467.92)
@@ -66,54 +111,24 @@ bank = [investment_account, chequing, savings]
 add_interest_to_list_of_accounts(bank)
 
 # Stretch challenge 3
-
-
 def main():
+    current_highest_account_number = 60027839
+
     # Get information to instantiate a new BankAccount object
     full_name = get_full_name()
     account_type = get_account_type()
-    account_number = generate_account_number()
+    account_number = generate_account_number(current_highest_account_number)
+    current_highest_account_number = account_number
     initial_balance = get_initial_balance()
 
-def get_full_name():
-    print("Thank you for opening an account at Super Bank")
-    while True:
-        try:
-            first_name = input("Enter your first name: ")
-        except ValueError:
-            print("Invalid entry")
-
-    while True:
-        try:
-            last_name = input("Enter your last name: ")
-        except ValueError:
-            print("Invalid entry")
-
-    full_name = f'{first_name} {last_name}'
-    return full_name
-
-def get_account_type():
-    print("Would you like a savings account or a chequing account?")
-    account_type_code = ''
-    while account_type_code.upper() != 'S' and account_type_code.upper() != 'C':
-        account_type_code = input("Enter S for savings or C for chequing: ")
-
-    if account_type_code.upper() == 'S':
-        return 'savings'
-    else:
-        return 'chequing'
-
-def generate_account_number(current_highest_account_number):
-    account_number = current_highest_account_number + 1
-    return account_number
+    print(f'{full_name} {account_type} {account_number} {initial_balance} ')
+    print(current_highest_account_number)
 
 
-def get_initial_balance():
-    while True:
-        try:
-            return float(input("Initial deposit amount: $"))
-        except ValueError:
-            print("Please enter an amount in dollars and cents ex. $43.52")
+main()
+
+
+
      
 
 
