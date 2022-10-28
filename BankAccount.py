@@ -79,28 +79,28 @@ def get_initial_balance():
             print("Please enter an amount in dollars and cents ex. $43.52")
 
 # Assignment requirement 5: Instantiate 3 bank accounts
-investment_account = BankAccount('Mitchell Hudson', 'Savings', '03141592', 0)
+investment_account = BankAccount('Mitchell Moore', 'Savings', '03141592', 0)
 chequing = BankAccount('Sam Bologna', 'Chequing','54789384', 467.92)
 savings = BankAccount('Pia Singh', 'Savings', '34508962', 1673.07)
 
 # Assignment requirement 6: Include example code
-# chequing.get_balance()
-# chequing.withdraw(50)
-# chequing.deposit(12.50)
-# chequing.get_balance()
-# chequing.add_interest()
-# chequing.print_statement()
+chequing.get_balance()
+chequing.withdraw(50)
+chequing.deposit(12.50)
+chequing.get_balance()
+chequing.add_interest()
+chequing.print_statement()
 
-# savings.get_balance()
-# savings.add_interest()
-# savings.print_statement()
+savings.get_balance()
+savings.add_interest()
+savings.print_statement()
 
-# investment_account.deposit(400000)
-# investment_account.print_statement()
-# investment_account.add_interest()
-# investment_account.print_statement()
-# investment_account.withdraw(150)
-# investment_account.print_statement()
+investment_account.deposit(400000)
+investment_account.print_statement()
+investment_account.add_interest()
+investment_account.print_statement()
+investment_account.withdraw(150)
+investment_account.print_statement()
 
 
 # Stretch challenge 2
@@ -128,7 +128,8 @@ def main():
     # Provide the new account information to the user
     print(f'\nCongratulations on opening your new {user_account1.account_type} account!')
     print('Here is your first statement:')
-    print(f'{user_account1.print_statement()}')
+    user_account1.print_statement()
+    
 
 
 main()
