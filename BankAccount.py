@@ -22,3 +22,7 @@ class BankAccount:
     def add_interest(self):
         interest = self.balance * 0.00083
         self.balance += interest
+
+    def print_statement(self):
+        last_4_digits_of_account_number = self.account_number[4:8]
+        print(f'{self.full_name} \nAccount No.: ****{last_4_digits_of_account_number} \nBalance: {self.balance} ')
