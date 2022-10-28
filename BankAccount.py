@@ -1,5 +1,5 @@
 class BankAccount:
-    def __init__(self, full_name, account_type, account_number, balance):
+    def __init__(self, full_name, account_type, account_number, balance = 0):
         self.full_name = full_name
         self.account_type = account_type #Stretch challenge 1
         self.account_number = account_number
@@ -32,28 +32,29 @@ class BankAccount:
         last_4_digits_of_account_number = self.account_number[4:8]
         print(f'{self.full_name} \n{self.account_type} Account No.: ****{last_4_digits_of_account_number} \nBalance: ${round(self.balance, 2)} ')
 
-# Instantiate 3 bank accounts
+# Assignment requirement 5: Instantiate 3 bank accounts
 investment_account = BankAccount('Mitchell Hudson', 'Savings', '03141592', 0)
 chequing = BankAccount('Sam Bologna', 'Chequing','54789384', 467.92)
 savings = BankAccount('Pia Singh', 'Savings', '34508962', 1673.07)
 
-chequing.get_balance()
-chequing.withdraw(50)
-chequing.deposit(12.50)
-chequing.get_balance()
-chequing.add_interest()
-chequing.print_statement()
+# Assignment requirement 6: Include example code
+# chequing.get_balance()
+# chequing.withdraw(50)
+# chequing.deposit(12.50)
+# chequing.get_balance()
+# chequing.add_interest()
+# chequing.print_statement()
 
-savings.get_balance()
-savings.add_interest()
-savings.print_statement()
+# savings.get_balance()
+# savings.add_interest()
+# savings.print_statement()
 
-investment_account.deposit(400000)
-investment_account.print_statement()
-investment_account.add_interest()
-investment_account.print_statement()
-investment_account.withdraw(150)
-investment_account.print_statement()
+# investment_account.deposit(400000)
+# investment_account.print_statement()
+# investment_account.add_interest()
+# investment_account.print_statement()
+# investment_account.withdraw(150)
+# investment_account.print_statement()
 
 
 # Stretch challenge 2
@@ -63,3 +64,57 @@ def add_interest_to_list_of_accounts(list):
 
 bank = [investment_account, chequing, savings]
 add_interest_to_list_of_accounts(bank)
+
+# Stretch challenge 3
+
+
+def main():
+    # Get information to instantiate a new BankAccount object
+    full_name = get_full_name()
+    account_type = get_account_type()
+    account_number = generate_account_number()
+    initial_balance = get_initial_balance()
+
+def get_full_name():
+    print("Thank you for opening an account at Super Bank")
+    while True:
+        try:
+            first_name = input("Enter your first name: ")
+        except ValueError:
+            print("Invalid entry")
+
+    while True:
+        try:
+            last_name = input("Enter your last name: ")
+        except ValueError:
+            print("Invalid entry")
+
+    full_name = f'{first_name} {last_name}'
+    return full_name
+
+def get_account_type():
+    print("Would you like a savings account or a chequing account?")
+    account_type_code = ''
+    while account_type_code.upper() != 'S' and account_type_code.upper() != 'C':
+        account_type_code = input("Enter S for savings or C for chequing: ")
+
+    if account_type_code.upper() == 'S':
+        return 'savings'
+    else:
+        return 'chequing'
+
+def generate_account_number(current_highest_account_number):
+    account_number = current_highest_account_number + 1
+    return account_number
+
+
+def get_initial_balance():
+    while True:
+        try:
+            return float(input("Initial deposit amount: $"))
+        except ValueError:
+            print("Please enter an amount in dollars and cents ex. $43.52")
+     
+
+
+
