@@ -1,9 +1,11 @@
 # Bank Account
 
-This program simulates basic banking operations for savings and chequing accounts.
+**Language: Python3**
+
+This program simulates basic banking operations for savings and chequing accounts.  It will prompt the user to create a new account.
 
 ## Usage
 
-**Language: Python3**
+1. Run `python3 bankaccount.py`
 
-Run `python3 bankaccount.py`
+2. Follow the CLI prompts to create a new bank account
